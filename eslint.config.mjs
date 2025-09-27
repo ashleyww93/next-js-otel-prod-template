@@ -49,6 +49,22 @@ const config = typescriptEslint.config(
       },
     },
     rules: {
+      // Prevent relative imports - enforce absolute imports only
+      "no-restricted-imports": [
+        "error",
+        {
+          patterns: [
+            {
+              group: ["./*", "../*", "../../*", "../../../*"],
+              message: "Relative imports are not allowed. Use absolute imports with '@/' instead. For example: '@/components/Button' instead of './components/Button'"
+            }
+          ]
+        }
+      ],
+
+      // Additional import restrictions
+      "import/no-relative-packages": "error",
+
       "@typescript-eslint/no-unused-vars": [
         "warn",
         {
