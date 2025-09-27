@@ -22,6 +22,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4.1.13",
+    "@total-typescript/ts-reset": "^0.5.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -33,6 +34,7 @@
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.13",
+    "typed-query-selector": "^2.12.0",
     "typescript": "^5",
     "typescript-eslint": "^8.32.0"
   }
