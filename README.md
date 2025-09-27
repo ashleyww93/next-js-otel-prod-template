@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Production Template
+
+A modern, production-ready Next.js template with Tailwind CSS 4.1 and a beautiful purple-themed dark mode.
+
+## Features
+
+- **Next.js 15.5.4** - Latest version with App Router
+- **Tailwind CSS 4.1** - Modern CSS-first configuration
+- **Turbopack** - Lightning-fast HMR and builds
+- **TypeScript** - Full type safety
+- **Dark Mode** - Beautiful purple-themed dark mode by default
+- **ESLint** - Code quality and consistency
+
+## Tech Stack
+
+- Framework: Next.js 15.5.4
+- Styling: Tailwind CSS 4.1
+- Language: TypeScript
+- Font: Inter (Google Fonts)
+- Build Tool: Turbopack
 
 ## Getting Started
 
-First, run the development server:
+### Installation
+
+Clone this template and install dependencies:
+
+```bash
+npm install
+```
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see your app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a production build:
+
+```bash
+npm run build
+```
+
+### Production
+
+Run the production server:
+
+```bash
+npm start
+```
+
+## Project Structure
+
+```
+/app              # App Router directory
+  layout.tsx      # Root layout with dark mode
+  page.tsx        # Home page
+  globals.css     # Global styles and Tailwind config
+/public           # Static assets
+```
+
+## Customization
+
+### Theme Colors
+
+The template uses a beautiful purple color palette. You can customize the colors in `app/globals.css` within the `@theme` directive:
+
+- Primary color: Purple-500 (#a855f7)
+- Dark background: Deep purple-black (#0a0118)
+- Surface colors: Purple-tinted grays
+
+### Tailwind Configuration
+
+Tailwind CSS 4.1 uses CSS-first configuration. All theme customization is done in `app/globals.css` using the `@theme` directive.
+
+## Scripts
+
+- `npm run dev` - Start development server with Turbopack
+- `npm run build` - Create production build
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+
+## License
+
+MIT
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Turbopack Documentation](https://turbo.build/pack)
