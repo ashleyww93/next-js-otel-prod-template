@@ -7,18 +7,18 @@ export default function Counter() {
   const { count, increment, decrement, reset } = useCounterStore()
 
   return (
-    <div className="rounded-xl border border-purple-900/50 bg-gradient-to-br from-[#1a0f2e] to-[#241640] p-8">
-      <h2 className="mb-6 text-center text-2xl font-bold text-purple-400">Zustand Counter Example</h2>
+    <div className="rounded-xl border border-gray-200 dark:border-gray-800 bg-gradient-to-br from-white to-gray-50 dark:from-gray-900/50 dark:to-gray-900/70 p-8">
+      <h2 className="text-primary mb-6 text-center text-2xl font-bold">Zustand Counter Example</h2>
 
       <div className="flex flex-col items-center gap-6">
-        <div className="bg-gradient-to-r from-purple-400 to-purple-600 bg-clip-text text-5xl font-bold text-transparent text-white">
+        <div className="text-primary text-5xl font-bold">
           {count}
         </div>
 
         <div className="flex gap-3">
           <button
             onClick={decrement}
-            className="rounded-lg border border-purple-500/50 bg-purple-500/20 p-3 text-purple-400 transition-all hover:scale-105 hover:bg-purple-500/30 active:scale-95"
+            className="border-primary/50 bg-primary/20 text-primary hover:bg-primary/30 rounded-lg border p-3 transition-all hover:scale-105 active:scale-95"
             aria-label="Decrement"
           >
             <Minus className="h-5 w-5" />
@@ -26,7 +26,7 @@ export default function Counter() {
 
           <button
             onClick={increment}
-            className="rounded-lg bg-purple-500 p-3 text-white transition-all hover:scale-105 hover:bg-purple-600 active:scale-95"
+            className="bg-primary hover:bg-primary-dark rounded-lg p-3 text-white transition-all hover:scale-105 active:scale-95"
             aria-label="Increment"
           >
             <Plus className="h-5 w-5" />
@@ -34,14 +34,16 @@ export default function Counter() {
 
           <button
             onClick={reset}
-            className="rounded-lg border border-purple-500/50 bg-purple-500/20 p-3 text-purple-400 transition-all hover:scale-105 hover:bg-purple-500/30 active:scale-95"
+            className="border-primary/50 bg-primary/20 text-primary hover:bg-primary/30 rounded-lg border p-3 transition-all hover:scale-105 active:scale-95"
             aria-label="Reset"
           >
             <RotateCcw className="h-5 w-5" />
           </button>
         </div>
 
-        <p className="mt-4 text-center text-sm text-gray-400">This counter uses Zustand for state management</p>
+        <p className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
+          This counter uses Zustand for state management
+        </p>
       </div>
     </div>
   )

@@ -8,6 +8,8 @@ import * as fs from "fs"
 import eslintPluginImport from "eslint-plugin-import"
 import eslintPluginNext from "@next/eslint-plugin-next"
 // import eslintPluginStorybook from "eslint-plugin-storybook"
+import eslintPluginPrettier from "eslint-plugin-prettier"
+import eslintConfigPrettier from "eslint-config-prettier"
 import typescriptEslint from "typescript-eslint"
 
 const eslintIgnore = [
@@ -34,12 +36,15 @@ const config = typescriptEslint.config(
   {
     plugins: {
       "@next/next": eslintPluginNext,
+      prettier: eslintPluginPrettier,
     },
     rules: {
       ...eslintPluginNext.configs.recommended.rules,
       ...eslintPluginNext.configs["core-web-vitals"].rules,
+      "prettier/prettier": "error",
     },
   },
+  eslintConfigPrettier, // This must come last to disable conflicting rules
   {
     settings: {
       tailwindcss: {
