@@ -1,67 +1,127 @@
 @import "tailwindcss";
 
-@theme {
-  --color-purple-primary: #a855f7;
-  --color-purple-dark: #7e22ce;
-  --color-background-dark: #0a0118;
-  --color-surface-dark: #1a0f2e;
-}
-
 :root {
-  --color-bg-base: #ffffff;
-  --color-bg-surface: #f9fafb;
-  --color-bg-card: #ffffff;
-  --color-text-primary: #111827;
-  --color-text-secondary: #6b7280;
-  --color-border: #e5e7eb;
-  --color-border-hover: #d1d5db;
+  /* Named theme colors */
+  --theme-white: #FFFFFF;
+  --theme-black: #000000;
+
+  /* Neutral palette */
+  --theme-neutral-50: #FAFAFA;
+  --theme-neutral-100: #F5F5F5;
+  --theme-neutral-200: #E5E7EB;
+  --theme-neutral-400: #9CA3AF;
+  --theme-neutral-500: #6B7280;
+  --theme-neutral-700: #374151;
+  --theme-neutral-900: #111827;
+
+  /* Light mode backgrounds - modern off-whites */
+  --theme-light-base: #FAFAFA;
+  --theme-light-surface: #FFFFFF;
+  --theme-light-elevated: #F8F9FA;
+
+  /* Dark backgrounds */
+  --theme-dark-base: #0A0118;
+  --theme-dark-surface: #1A0F2E;
+  --theme-dark-elevated: #241640;
+
+  /* Cosmic Purple theme colors */
+  --theme-purple-light: #A855F7;
+  --theme-purple: #9333EA;
+  --theme-purple-dark: #7E22CE;
+  --theme-purple-darker: #6B21A8;
+
+  /* Solar Yellow theme colors */
+  --theme-yellow: #FACC15;
+  --theme-yellow-dark: #F59E0B;
+  --theme-yellow-light: #FBBF24;
+
+  /* Nebula Blue theme colors */
+  --theme-blue: #1877F2;
+  --theme-blue-dark: #0C53B7;
+  --theme-blue-light: #0866FF;
+
+  /* Light mode defaults with Cosmic Purple theme */
+  --primary: var(--theme-purple);
+  --primary-foreground: var(--theme-white);
+  --secondary: var(--theme-purple-darker);
+  --secondary-foreground: var(--theme-white);
+  --accent: var(--theme-purple-dark);
+  --accent-foreground: var(--theme-white);
+
+  --background: var(--theme-light-base);
+  --foreground: var(--theme-neutral-900);
+
+  --card: var(--theme-light-surface);
+  --card-foreground: var(--theme-neutral-900);
+
+  --muted: var(--theme-light-elevated);
+  --muted-foreground: var(--theme-neutral-500);
+
+  --border: #E0E0E0;
 }
 
-:root.dark {
-  --color-bg-base: #0a0118;
-  --color-bg-surface: #1a0f2e;
-  --color-bg-card: #241640;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #9ca3af;
-  --color-border: #374151;
-  --color-border-hover: #4b5563;
+.dark {
+  /* Dark mode overrides */
+  --primary: var(--theme-purple-light);
+  --secondary: var(--theme-purple-dark);
+  --accent: var(--theme-purple);
+
+  --background: var(--theme-dark-base);
+  --foreground: var(--theme-white);
+
+  --card: var(--theme-dark-surface);
+  --card-foreground: var(--theme-white);
+
+  --muted: var(--theme-dark-elevated);
+  --muted-foreground: var(--theme-neutral-400);
+
+  --border: var(--theme-neutral-700);
 }
 
-:root[data-theme="modern"] {
-  --color-primary: #a855f7;
-  --color-primary-dark: #9333ea;
-  --color-primary-light: #c084fc;
-  --color-secondary: #7e22ce;
-  --color-accent: #9333ea;
+/* Solar Yellow theme */
+.theme-solar-yellow {
+  --primary: var(--theme-yellow);
+  --primary-foreground: var(--theme-black);
+  --secondary: var(--theme-yellow-dark);
+  --secondary-foreground: var(--theme-black);
+  --accent: var(--theme-yellow-light);
+  --accent-foreground: var(--theme-black);
 }
 
-:root[data-theme="electric-yellow"] {
-  --color-primary: #facc15;
-  --color-primary-dark: #eab308;
-  --color-primary-light: #fde047;
-  --color-secondary: #f59e0b;
-  --color-accent: #fbbf24;
+/* Nebula Blue theme */
+.theme-nebula-blue {
+  --primary: var(--theme-blue);
+  --primary-foreground: var(--theme-white);
+  --secondary: var(--theme-blue-dark);
+  --secondary-foreground: var(--theme-white);
+  --accent: var(--theme-blue-light);
+  --accent-foreground: var(--theme-white);
 }
 
-:root[data-theme="social-blue"] {
-  --color-primary: #1877f2;
-  --color-primary-dark: #0866ff;
-  --color-primary-light: #4b94ff;
-  --color-secondary: #0c53b7;
-  --color-accent: #1877f2;
+@theme {
+  /* Map CSS variables to Tailwind's color system - needs RGB format */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
 }
 
-:root.light[data-theme="modern"] {
-  --color-primary: #9333ea;
-  --color-primary-dark: #7e22ce;
-  --color-primary-light: #a855f7;
-  --color-secondary: #6b21a8;
-  --color-accent: #8b5cf6;
-}
-
+/* Base styles */
 html {
   color-scheme: light;
-  transition: background-color 0.3s ease;
 }
 
 html.dark {
@@ -69,55 +129,5 @@ html.dark {
 }
 
 body {
-  background-color: var(--color-bg-base);
-  color: var(--color-text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.bg-primary {
-  background-color: var(--color-primary);
-}
-
-.bg-primary-dark {
-  background-color: var(--color-primary-dark);
-}
-
-.bg-primary\/10 {
-  background-color: rgb(from var(--color-primary) r g b / 0.1);
-}
-
-.bg-primary\/20 {
-  background-color: rgb(from var(--color-primary) r g b / 0.2);
-}
-
-.border-primary {
-  border-color: var(--color-primary);
-}
-
-.border-primary\/30 {
-  border-color: rgb(from var(--color-primary) r g b / 0.3);
-}
-
-.border-primary\/50 {
-  border-color: rgb(from var(--color-primary) r g b / 0.5);
-}
-
-.hover\:bg-primary-dark:hover {
-  background-color: var(--color-primary-dark);
-}
-
-.hover\:bg-primary\/30:hover {
-  background-color: rgb(from var(--color-primary) r g b / 0.3);
-}
-
-.hover\:border-primary\/30:hover {
-  border-color: rgb(from var(--color-primary) r g b / 0.3);
-}
-
-.hover\:border-primary\/50:hover {
-  border-color: rgb(from var(--color-primary) r g b / 0.5);
+  @apply bg-background text-foreground antialiased transition-colors;
 }

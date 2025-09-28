@@ -11,7 +11,7 @@ const meta = {
   decorators: [
     (Story) => (
       <ThemeProvider>
-        <div className="flex min-h-[400px] min-w-[400px] items-center justify-center bg-gray-50 p-8 dark:bg-gray-950">
+        <div className="bg-background flex min-h-[400px] min-w-[500px] items-center justify-center p-8">
           <Story />
         </div>
       </ThemeProvider>
@@ -24,60 +24,3 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {}
-
-export const InLightMode: Story = {
-  decorators: [
-    (Story) => {
-      if (typeof window !== "undefined") {
-        document.documentElement.classList.remove("dark")
-        document.documentElement.classList.add("light")
-      }
-      return <Story />
-    },
-  ],
-}
-
-export const InDarkMode: Story = {
-  decorators: [
-    (Story) => {
-      if (typeof window !== "undefined") {
-        document.documentElement.classList.remove("light")
-        document.documentElement.classList.add("dark")
-      }
-      return <Story />
-    },
-  ],
-}
-
-export const ModernTheme: Story = {
-  decorators: [
-    (Story) => {
-      if (typeof window !== "undefined") {
-        document.documentElement.setAttribute("data-theme", "modern")
-      }
-      return <Story />
-    },
-  ],
-}
-
-export const ElectricYellowTheme: Story = {
-  decorators: [
-    (Story) => {
-      if (typeof window !== "undefined") {
-        document.documentElement.setAttribute("data-theme", "electric-yellow")
-      }
-      return <Story />
-    },
-  ],
-}
-
-export const SocialBlueTheme: Story = {
-  decorators: [
-    (Story) => {
-      if (typeof window !== "undefined") {
-        document.documentElement.setAttribute("data-theme", "social-blue")
-      }
-      return <Story />
-    },
-  ],
-}

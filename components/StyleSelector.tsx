@@ -9,19 +9,19 @@ export default function StyleSelector() {
 
   const themes: { value: Theme; label: string; colorStyle: string }[] = [
     {
-      value: "modern",
-      label: "Modern",
-      colorStyle: "bg-[#a855f7]",
+      value: "cosmic-purple",
+      label: "Cosmic Purple",
+      colorStyle: "bg-[#9333EA]",
     },
     {
-      value: "electric-yellow",
-      label: "Electric Yellow",
-      colorStyle: "bg-[#facc15]",
+      value: "solar-yellow",
+      label: "Solar Yellow",
+      colorStyle: "bg-[#FACC15]",
     },
     {
-      value: "social-blue",
-      label: "Social Blue",
-      colorStyle: "bg-[#1877f2]",
+      value: "nebula-blue",
+      label: "Nebula Blue",
+      colorStyle: "bg-[#1877F2]",
     },
   ]
 
@@ -33,13 +33,13 @@ export default function StyleSelector() {
   return (
     <Card className="space-y-6" hover={false}>
       <div className="mb-4 flex items-center gap-2">
-        <Palette className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Style Settings</h2>
+        <Palette className="text-muted-foreground h-5 w-5" />
+        <h2 className="text-foreground text-lg font-semibold">Style Settings</h2>
       </div>
 
       <div className="space-y-4">
         <div>
-          <label className="mb-3 block text-sm font-medium text-gray-700 dark:text-gray-300">Mode</label>
+          <label className="text-muted-foreground mb-3 block text-sm font-medium">Mode</label>
           <div className="grid grid-cols-2 gap-2">
             {modes.map((m) => (
               <button
@@ -48,7 +48,7 @@ export default function StyleSelector() {
                 className={`flex items-center justify-center gap-2 rounded-lg border-2 px-4 py-2 transition-all ${
                   mode === m.value
                     ? "border-primary bg-primary/10 text-primary"
-                    : "border-gray-200 text-gray-600 hover:border-gray-300 dark:border-gray-700 dark:text-gray-400 dark:hover:border-gray-600"
+                    : "border-border text-muted-foreground hover:border-border/80"
                 } `}
               >
                 {m.icon}
@@ -59,36 +59,32 @@ export default function StyleSelector() {
         </div>
 
         <div>
-          <label className="mb-3 block text-sm font-medium text-gray-700 dark:text-gray-300">Theme</label>
+          <label className="text-muted-foreground mb-3 block text-sm font-medium">Theme</label>
           <div className="space-y-2">
             {themes.map((t) => (
               <button
                 key={t.value}
                 onClick={() => setTheme(t.value)}
                 className={`flex w-full items-center gap-3 rounded-lg border-2 px-4 py-3 transition-all ${
-                  theme === t.value
-                    ? "border-primary bg-primary/10"
-                    : "border-gray-200 hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600"
+                  theme === t.value ? "border-primary bg-primary/10" : "border-border hover:border-border/80"
                 } `}
               >
                 <div className={`h-6 w-6 rounded-full ${t.colorStyle}`} />
-                <span
-                  className={`font-medium ${theme === t.value ? "text-primary" : "text-gray-700 dark:text-gray-300"}`}
-                >
+                <span className={`font-medium ${theme === t.value ? "text-primary" : "text-muted-foreground"}`}>
                   {t.label}
                 </span>
                 {theme === t.value && (
-                  <span className="text-primary bg-primary/20 ml-auto rounded px-2 py-1 text-xs">Active</span>
+                  <span className="bg-primary/20 text-primary ml-auto rounded px-2 py-1 text-xs">Active</span>
                 )}
               </button>
             ))}
           </div>
         </div>
 
-        <div className="border-t border-gray-200 pt-4 dark:border-gray-800">
+        <div className="border-border border-t pt-4">
           <button
             onClick={toggleMode}
-            className="bg-primary hover:bg-primary-dark flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-white transition-colors"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 transition-colors"
           >
             {mode === "light" ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
             Toggle to {mode === "light" ? "Dark" : "Light"} Mode

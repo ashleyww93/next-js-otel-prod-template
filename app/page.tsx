@@ -1,35 +1,32 @@
 import { Layers, Palette, Zap } from "lucide-react"
-import Counter from "@/components/Counter"
-import StyleSelector from "@/components/StyleSelector"
 import Card from "@/components/Card"
+import Counter from "@/components/Counter"
+import Grid from "@/components/Grid"
+import StyleSelector from "@/components/StyleSelector"
 
 export default function Home() {
   return (
     <main className="flex min-h-screen items-center justify-center p-8 transition-colors">
       <div className="w-full max-w-4xl space-y-8">
         <div className="space-y-4 text-center">
-          <h1 className="text-primary text-5xl font-bold">
-            Next.js Template
-          </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-400">
+          <h1 className="text-primary text-5xl font-bold">Next.js Template</h1>
+          <p className="text-muted-foreground text-xl">
             A modern Next.js 15.5.4 template with Tailwind CSS 4.1, Zustand & Lucide Icons
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+        <Grid cols={2} gap="lg">
           <Counter />
           <StyleSelector />
-        </div>
+        </Grid>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <Grid cols={3} className="mt-12">
           <Card>
             <div className="mb-2 flex items-center gap-3">
               <Zap className="text-primary h-5 w-5" />
               <h2 className="text-primary text-lg font-semibold">Fast Development</h2>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Built with Turbopack for lightning-fast HMR and builds.
-            </p>
+            <p className="text-muted-foreground text-sm">Built with Turbopack for lightning-fast HMR and builds.</p>
           </Card>
 
           <Card>
@@ -37,7 +34,7 @@ export default function Home() {
               <Layers className="text-primary h-5 w-5" />
               <h2 className="text-primary text-lg font-semibold">Modern Stack</h2>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground text-sm">
               Next.js 15.5.4 with App Router, React Server Components & Zustand.
             </p>
           </Card>
@@ -47,16 +44,14 @@ export default function Home() {
               <Palette className="text-primary h-5 w-5" />
               <h2 className="text-primary text-lg font-semibold">Beautiful Design</h2>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Tailwind CSS 4.1 with Lucide icons and customizable themes.
-            </p>
+            <p className="text-muted-foreground text-sm">Tailwind CSS 4.1 with Lucide icons and customizable themes.</p>
           </Card>
-        </div>
+        </Grid>
 
         <div className="mt-12 flex justify-center gap-4">
           <a
             href="https://nextjs.org/docs"
-            className="rounded-lg bg-primary px-6 py-3 font-medium text-white transition-colors hover:bg-primary-dark"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg px-6 py-3 font-medium transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -64,7 +59,7 @@ export default function Home() {
           </a>
           <a
             href="https://tailwindcss.com/docs"
-            className="rounded-lg border border-gray-200 bg-white px-6 py-3 font-medium text-gray-900 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900/50 dark:text-white dark:hover:bg-gray-900/70"
+            className="border-border bg-card text-card-foreground hover:bg-muted rounded-lg border px-6 py-3 font-medium transition-colors"
             target="_blank"
             rel="noopener noreferrer"
           >
