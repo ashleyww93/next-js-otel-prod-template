@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-200%);
+  }
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+@layer utilities {
+  .animate-shimmer {
+    animation: shimmer 2s ease-in-out infinite;
+  }
+}
+
 :root {
   /* Named theme colors */
   --theme-white: #FFFFFF;
@@ -58,6 +73,9 @@
   --muted-foreground: var(--theme-neutral-500);
 
   --border: #E0E0E0;
+
+  /* Skeleton colors for loading states */
+  --skeleton: var(--theme-neutral-200);
 }
 
 .dark {
@@ -76,6 +94,9 @@
   --muted-foreground: var(--theme-neutral-400);
 
   --border: var(--theme-neutral-700);
+
+  /* Skeleton colors for loading states */
+  --skeleton: #2A1F3D;
 }
 
 /* Solar Yellow theme */
@@ -117,6 +138,8 @@
   --color-muted-foreground: var(--muted-foreground);
 
   --color-border: var(--border);
+
+  --color-skeleton: var(--skeleton);
 }
 
 /* Base styles */
